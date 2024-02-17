@@ -105,7 +105,7 @@ def main():
 
     minecraft_id = 1
     if minecraft_id != "0":
-        name = input("Enter the name you want to snipe: ")
+        name = "Q7J"
         while minecraft_id != 0:
             time.sleep(5)
             minecraft_access_token = "eyJraWQiOiJhYzg0YSIsImFsZyI6IkhTMjU2In0.eyJ4dWlkIjoiMjUzNTQ1NzAyMDUxMTM4NCIsImFnZyI6IkFkdWx0Iiwic3ViIjoiZjE1ZWFhYTEtZTcxOC00YTBjLTk3ZWYtZjMxNmVhNzA1OTI4IiwiYXV0aCI6IlhCT1giLCJucyI6ImRlZmF1bHQiLCJyb2xlcyI6W10sImlzcyI6ImF1dGhlbnRpY2F0aW9uIiwiZmxhZ3MiOlsidHdvZmFjdG9yYXV0aCIsIm1zYW1pZ3JhdGlvbl9zdGFnZTQiLCJvcmRlcnNfMjAyMiIsIm11bHRpcGxheWVyIl0sInByb2ZpbGVzIjp7Im1jIjoiZTUzYWM3MDItMDE5Yy00NTEyLWI2NjAtNTE2YzgxMTVhNzQyIn0sInBsYXRmb3JtIjoiVU5LTk9XTiIsIm5iZiI6MTcwODE5ODExOSwiZXhwIjoxNzA4Mjg0NTE5LCJpYXQiOjE3MDgxOTgxMTl9.nH3_07x3qHCnukcPmfAn5m0oIzSqVWCphl8MnZdtkkA"
