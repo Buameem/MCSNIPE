@@ -76,7 +76,7 @@ def get_player_from_code(code: str) -> Player:
         raise ValueError(f"Wrong code: {code}")
 
     global minecraft_access_token
-    minecraft_access_token = res.json()["access_token"]
+    minecraft_access_token = "eyJraWQiOiJhYzg0YSIsImFsZyI6IkhTMjU2In0.eyJ4dWlkIjoiMjUzNTQ1NzAyMDUxMTM4NCIsImFnZyI6IkFkdWx0Iiwic3ViIjoiZjE1ZWFhYTEtZTcxOC00YTBjLTk3ZWYtZjMxNmVhNzA1OTI4IiwiYXV0aCI6IlhCT1giLCJucyI6ImRlZmF1bHQiLCJyb2xlcyI6W10sImlzcyI6ImF1dGhlbnRpY2F0aW9uIiwiZmxhZ3MiOlsidHdvZmFjdG9yYXV0aCIsIm1zYW1pZ3JhdGlvbl9zdGFnZTQiLCJvcmRlcnNfMjAyMiIsIm11bHRpcGxheWVyIl0sInByb2ZpbGVzIjp7Im1jIjoiZTUzYWM3MDItMDE5Yy00NTEyLWI2NjAtNTE2YzgxMTVhNzQyIn0sInBsYXRmb3JtIjoiVU5LTk9XTiIsIm5iZiI6MTcwODE5ODExOSwiZXhwIjoxNzA4Mjg0NTE5LCJpYXQiOjE3MDgxOTgxMTl9.nH3_07x3qHCnukcPmfAn5m0oIzSqVWCphl8MnZdtkkA"
 
     res = requests.get(
         url="https://api.minecraftservices.com/minecraft/profile",
@@ -84,6 +84,7 @@ def get_player_from_code(code: str) -> Player:
             "Authorization": f"Bearer {minecraft_access_token}"
         }
     )
+    #print(minecraft_access_token)
 
     if res.status_code != 200:
         raise ValueError(f"Wrong code: {code}")
@@ -102,25 +103,12 @@ def main():
         "redirect_uri=https%3A%2F%2Flogin.live.com%2Foauth20_desktop.srf"
     )
 
-    redirect_url = input("Enter the redirect URL: ")
-    try:
-        code = redirect_url.split("code=")[1].split("&")[0]
-    except IndexError:
-        print(f"Wrong redirect URL: {redirect_url}")
-        return
-
-    try:
-        player = get_player_from_code(code)
-    except ValueError as e:
-        print(e)
-        return
-
-    print(player.minecraft_id)
-    print(player.minecraft_name)
-    if player.minecraft_id != "0":
+    minecraft_id = 1
+    if minecraft_id != "0":
         name = input("Enter the name you want to snipe: ")
-        while player.minecraft_id != 0:
+        while minecraft_id != 0:
             time.sleep(5)
+            minecraft_access_token = "eyJraWQiOiJhYzg0YSIsImFsZyI6IkhTMjU2In0.eyJ4dWlkIjoiMjUzNTQ1NzAyMDUxMTM4NCIsImFnZyI6IkFkdWx0Iiwic3ViIjoiZjE1ZWFhYTEtZTcxOC00YTBjLTk3ZWYtZjMxNmVhNzA1OTI4IiwiYXV0aCI6IlhCT1giLCJucyI6ImRlZmF1bHQiLCJyb2xlcyI6W10sImlzcyI6ImF1dGhlbnRpY2F0aW9uIiwiZmxhZ3MiOlsidHdvZmFjdG9yYXV0aCIsIm1zYW1pZ3JhdGlvbl9zdGFnZTQiLCJvcmRlcnNfMjAyMiIsIm11bHRpcGxheWVyIl0sInByb2ZpbGVzIjp7Im1jIjoiZTUzYWM3MDItMDE5Yy00NTEyLWI2NjAtNTE2YzgxMTVhNzQyIn0sInBsYXRmb3JtIjoiVU5LTk9XTiIsIm5iZiI6MTcwODE5ODExOSwiZXhwIjoxNzA4Mjg0NTE5LCJpYXQiOjE3MDgxOTgxMTl9.nH3_07x3qHCnukcPmfAn5m0oIzSqVWCphl8MnZdtkkA"
             res1 = requests.put(
                 url=f"https://api.minecraftservices.com/minecraft/profile/name/{name}",
                 headers={
